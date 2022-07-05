@@ -2,6 +2,7 @@ import React, { useState, useContext, useReducer, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import StudentContext from "./store/student-context";
+import "./Studentform.css";
 
 const defaultStudent = {
   name: "",
@@ -116,18 +117,24 @@ const StudentForm = (props) => {
     props.cancel();
   };
 
-  let grade, result;
+  let grade, result, resultColor, gradeColor;
 
   if (props.score < 30) {
     grade = "Poor";
     result = "Failed";
+    resultColor = "failedresult";
+    gradeColor = "red";
   }
   if (props.score > 31 && props.score < 75) {
     grade = "Average";
     result = "Passed";
+    resultColor = "passedresult";
+    gradeColor = "blue";
   } else if (props.score > 75) {
     grade = "Excellent";
     result = "Passed";
+    resultColor = "passedresult";
+    gradeColor = "green";
   }
 
   return (
@@ -180,18 +187,34 @@ const StudentForm = (props) => {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicResult">
           <Form.Label>Result</Form.Label>
-          <p>{!!eid ? result : "-"}</p>
+          <p>
+            <span
+              className={`${resultColor} rounded-pill px-2 ${
+                !!eid ? "text-white" : ""
+              }`}
+            >
+              {!!eid ? result : "-"}
+            </span>
+          </p>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicGrade">
           <Form.Label>Grade</Form.Label>
-          <p>{!!eid ? grade : "-"}</p>
+          <p>
+            <span className={`${gradeColor} rounded-pill px-2 `}>
+              {!!eid ? grade : "-"}
+            </span>
+          </p>
         </Form.Group>
-        <Button className="float-end" variant="primary" type="submit">
+        <Button
+          className="float-end"
+          style={{ backgroundColor: "#2CA4D8", padding: "6px 16px 6px 16px" }}
+          type="submit"
+        >
           Submit
         </Button>
         <Button
-          className="mx-3 float-end"
-          variant="outline-primary"
+          style={{ color: "#2CA4D8" }}
+          className="cancel mx-3 float-end"
           onClick={props.cancel || props.editCancel}
         >
           Cancel

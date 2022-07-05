@@ -10,29 +10,46 @@ const StudentList = (props) => {
     setShow(false);
   };
 
-  const resultColor = `${props.score < 30 ? "bg-danger" : "bg-primary"}`;
+  const resultColor = `${props.score < 30 ? "bg-danger" : "passcolor"}`;
 
   let grade, result, gradeColor;
   if (props.score < 30) {
     grade = "Poor";
     result = "Failed";
-    gradeColor = "text-danger";
+    gradeColor = "red";
   }
   if (props.score > 31 && props.score < 75) {
     grade = "Average";
     result = "Passed";
-    gradeColor = "text-primary";
+    gradeColor = "blue";
   } else if (props.score > 75) {
     grade = "Excellent";
     result = "Passed";
-    gradeColor = "text-success";
+    gradeColor = "green";
+  }
+  let ordinal;
+  switch (props.class) {
+    case "1":
+      ordinal = "st";
+      break;
+    case "2":
+      ordinal = "nd";
+      break;
+    case "3":
+      ordinal = "rd";
+      break;
+    default:
+      ordinal = "th";
   }
   return (
     <tbody className="showhim">
       <tr>
         <td>{props.num}</td>
         <td>{props.name}</td>
-        <td>{props.class}</td>
+        <td>
+          {props.class}
+          {ordinal}
+        </td>
         <td>
           <span className={`${resultColor} rounded-pill px-2 text-white`}>
             {result}
@@ -57,7 +74,13 @@ const StudentList = (props) => {
               score={props.score}
             ></StudentModal>
             {/* <i className="text-primary fa-solid fa-heart fa-trash"></i> */}
-            <MyModal show id={props.id} />
+            <MyModal
+              ordinal={ordinal}
+              show
+              id={props.id}
+              name={props.name}
+              class={props.class}
+            />
           </span>
         </td>
       </tr>

@@ -21,8 +21,8 @@ function App() {
           <h3 className="d-inline-block">Students</h3>
 
           <Button
-            className="px-4  float-end mb-4"
-            variant="primary"
+            className="float-end mb-4"
+            style={{ backgroundColor: "#2CA4D8", padding: "8px 32px 8px 32px" }}
             onClick={handleShow}
           >
             + Add

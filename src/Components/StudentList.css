@@ -2,6 +2,23 @@
   color: black !important;
   cursor: pointer;
 }
+.red {
+  color: #f24643 !important;
+}
+.green {
+  color: #2cbf6e !important;
+}
+.blue {
+  color: #2ca4d8 !important;
+}
+
+.passcolor {
+  background-color: #2cbf6e;
+}
+
+.failcolor {
+  background-color: #f24643;
+}
 
 .fa-heart:hover {
   color: red !important;

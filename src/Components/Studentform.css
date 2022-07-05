@@ -1,0 +1,27 @@
+.passedresult {
+  background-color: #2cbf6e !important;
+}
+
+.failedresult {
+  background-color: #f24643 !important;
+}
+
+.red {
+  color: #f24643 !important;
+}
+.green {
+  color: #2cbf6e !important;
+}
+.blue {
+  color: #2ca4d8 !important;
+}
+
+.cancel {
+  border-color: #2ca4d8 !important;
+  background-color: white !important;
+  padding: "6px 16px 6px 16px";
+}
+.cancel:hover {
+  background-color: #2ca4d8 !important;
+  color: white !important;
+}

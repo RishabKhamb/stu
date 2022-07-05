@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import Form from "react-bootstrap/Form";
 import StudentContext from "./store/student-context";
 
 const MyModal = (props) => {
@@ -25,12 +26,38 @@ const MyModal = (props) => {
       ></i>
 
       <Modal show={show} onHide={handleClose}>
-        <Modal.Body>Are you sure you want to delete this?</Modal.Body>
+        <Modal.Header>
+          <Modal.Title>Remove student</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Label>
+              Are you sure you want to remove the current student from the list?
+            </Form.Label>
+            <Form.Group className="mb-3">
+              <Form.Text className="text-muted">STUDENT NAME</Form.Text>
+              <p>{props.name}</p>
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Text className="text-muted">CLASS</Form.Text>
+              <p>
+                {props.class}
+                {props.ordinal}
+              </p>
+            </Form.Group>
+          </Form>
+          {/* Are you sure you want to delete this? */}
+          {/* {props.name} {props.class} */}
+        </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="outline-primary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={removeHandler}>
+          <Button
+            style={{ background: "#f24643" }}
+            className="px-4"
+            onClick={removeHandler}
+          >
             Yes
           </Button>
         </Modal.Footer>
