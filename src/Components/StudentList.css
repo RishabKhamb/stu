@@ -1,0 +1,17 @@
+.fa-flag:hover {
+  color: black !important;
+  cursor: pointer;
+}
+
+.fa-heart:hover {
+  color: red !important;
+  cursor: pointer;
+}
+
+.showme {
+  display: none;
+}
+
+.showhim:hover .showme {
+  display: block;
+}

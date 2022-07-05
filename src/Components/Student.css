@@ -1,0 +1,7 @@
+.my {
+  box-sizing: border-box;
+}
+.table {
+  table-layout: fixed;
+  word-wrap: break-word;
+}
