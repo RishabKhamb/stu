@@ -9,9 +9,11 @@
 }
 
 .showme {
-  display: none;
+  /* display: none; */
+  visibility: hidden;
 }
 
 .showhim:hover .showme {
-  display: block;
+  /* display: block; */
+  visibility: visible;
 }
